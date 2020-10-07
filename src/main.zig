@@ -54,12 +54,9 @@ pub fn Copy(comptime T: comptime type) bool {
             return Copy(u.payload);
         },
 
-        .Pointer => |p| {
-            return Copy(p.child);
-        },
-
         // undefined is assumed not copy
         // EnumLiteral I'm not sure about
+        // Pointer is not copy
         else => return false,
     }
 }
@@ -73,7 +70,8 @@ test "copy trait" {
     testing.expect(Copy(enum { x, y }));
     testing.expect(Copy(bool));
     testing.expect(Copy([10]u8));
-    testing.expect(Copy([]u8));
-    testing.expect(Copy(*u8));
     testing.expect(Copy(?u8));
+
+    testing.expect(!Copy(*u8));
+    testing.expect(!Copy([]u8));
 }
