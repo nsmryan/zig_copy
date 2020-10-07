@@ -20,9 +20,17 @@ indicates that a type implements the trait.
 
 Zig's implementation of this concept feels very much in line with the rest of Zig's design-
 it is pragmatic and uses basic concepts like functions with no need for built in support.
+
+
 I'm sure this limits the languages ability to perform checks such as Rust's orfan rule, or
 some of the more complex Haskell concepts, or the ability to create a Zig version of Hoogle,
-or Rust's trait documentation. However, I think the intent is to get much of the advantage
+or Rust's trait documentation. It also makes the use of traits seem more like what I believe
+is done in Go, where a type can implement a Protocol as long as it has the correct
+definitions, rather then the explicit way this is done in Rust and Haskell. Whether this is
+good or not is a whole bag of tradeoffs- its certainly not what I'm used to.
+
+
+However, I think the intent is to get much of the advantage
 of other language's innovations while keeping the Zig version simple and built within the
 language instead of build into the language. This is a signficant tradeoff, and one I will
 be interested to watch within the Zig community.
